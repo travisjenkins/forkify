@@ -263,9 +263,9 @@
           <label>Title</label>
           <input value="TEST" required name="title" type="text" />
           <label>URL</label>
-          <input value="TEST" required name="sourceUrl" type="text" />
+          <input value="TEST" required name="sourceUrl" type="url" />
           <label>Image URL</label>
-          <input value="TEST" required name="image" type="text" />
+          <input value="TEST" required name="image" type="url" />
           <label>Publisher</label>
           <input value="TEST" required name="publisher" type="text" />
           <label>Prep time</label>
@@ -276,14 +276,50 @@
 
         <div class="upload__column">
           <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <input
+          <!-- <input
             value="0.5,kg,Rice"
             type="text"
             required
             name="ingredient-1"
-            placeholder="Format: 'Quantity,Unit,Description'" />
-          <label>Ingredient 2</label>
+            placeholder="Format: 'Quantity,Unit,Description'" /> -->
+
+          <!-- Start - Added to improve UX for adding ingredients -->
+          <div class="upload__ingredients">
+            <ul class="recipe__ingredient-list upload__ingredients__list">
+              <!-- Add ingredients here -->
+            </ul>
+            <label class="upload__ingredients__error error-ingredients"></label>
+          </div>
+
+          <label for="ingredient-quantity">Quantity</label>
+          <input
+            type="number"
+            id="ingredient-quantity"
+            name="ingredient-quantity"
+            min="0"
+            step="0.1" />
+          <label class="upload__ingredients__error error-quantity"></label>
+
+          <label for="ingredient-unit">Unit</label>
+          <input type="text" id="ingredient-unit" name="ingredient-unit" />
+          <label class="upload__ingredients__error error-unit"></label>
+
+          <label for="ingredient-description">Description</label>
+          <input
+            type="text"
+            id="ingredient-description"
+            name="ingredient-description" />
+          <label class="upload__ingredients__error error-description"></label>
+
+          <button class="btn--small upload__btn--add-ingredient">
+            <span>Add </span>
+            <svg>
+              <use href="src/img/icons.svg#icon-plus-circle"></use>
+            </svg>
+          </button>
+          <!-- End - Added to improve UX for adding ingredients -->
+
+          <!-- <label>Ingredient 2</label>
           <input
             value="1,,Avocado"
             type="text"
@@ -309,7 +345,7 @@
           <input
             type="text"
             name="ingredient-6"
-            placeholder="Format: 'Quantity,Unit,Description'" />
+            placeholder="Format: 'Quantity,Unit,Description'" /> -->
         </div>
 
         <button class="btn upload__btn">

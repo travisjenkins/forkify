@@ -86,6 +86,7 @@ const controlAddRecipe = async function (newRecipe) {
   try {
     // Show loading spinner
     addRecipeView.renderSpinner();
+    if (!addRecipeView.hasIngredients()) return;
     // Upload the new recipe
     await model.uploadRecipe(newRecipe);
     // Render recipe
@@ -106,6 +107,10 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
+const controlAddIngredient = function (inputArr, ing) {
+  addRecipeView.addIngredient(inputArr, ing);
+};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -114,5 +119,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  addRecipeView.addHandlerAddIngredient(controlAddIngredient);
 };
 init();

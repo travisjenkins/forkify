@@ -82,11 +82,11 @@ const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
-const controlAddRecipe = async function (newRecipe) {
+const controlAddRecipe = async function (dataArr, newRecipe) {
   try {
+    if (!addRecipeView.isValidRecipe(dataArr)) return;
     // Show loading spinner
     addRecipeView.renderSpinner();
-    if (!addRecipeView.hasIngredients()) return;
     // Upload the new recipe
     await model.uploadRecipe(newRecipe);
     // Render recipe
@@ -107,8 +107,8 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const controlAddIngredient = function (inputArr, ing) {
-  addRecipeView.addIngredient(inputArr, ing);
+const controlAddIngredient = function (inputArr, newIngredient) {
+  addRecipeView.addIngredient(inputArr, newIngredient);
 };
 
 const init = function () {

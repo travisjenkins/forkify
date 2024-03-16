@@ -261,17 +261,32 @@
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
           <label>Title</label>
-          <input value="TEST" required name="title" type="text" />
+          <input name="title" type="text" />
+          <label class="upload__ingredients__error error-title hidden"></label>
+
           <label>URL</label>
-          <input value="TEST" required name="sourceUrl" type="url" />
+          <input name="sourceUrl" type="text" />
+          <label
+            class="upload__ingredients__error error-sourceUrl hidden"></label>
+
           <label>Image URL</label>
-          <input value="TEST" required name="image" type="url" />
+          <input name="image" type="text" />
+          <label class="upload__ingredients__error error-image hidden"></label>
+
           <label>Publisher</label>
-          <input value="TEST" required name="publisher" type="text" />
+          <input name="publisher" type="text" />
+          <label
+            class="upload__ingredients__error error-publisher hidden"></label>
+
           <label>Prep time</label>
-          <input value="23" required name="cookingTime" type="number" />
+          <input name="cookingTime" type="number" min="1" max="1440" />
+          <label
+            class="upload__ingredients__error error-cookingTime hidden"></label>
+
           <label>Servings</label>
-          <input value="23" required name="servings" type="number" />
+          <input name="servings" type="number" min="1" max="100" />
+          <label
+            class="upload__ingredients__error error-servings hidden"></label>
         </div>
 
         <div class="upload__column">
@@ -288,7 +303,8 @@
             <ul class="recipe__ingredient-list upload__ingredients__list">
               <!-- Add ingredients here -->
             </ul>
-            <label class="upload__ingredients__error error-ingredients"></label>
+            <label
+              class="upload__ingredients__error error-ingredients hidden"></label>
           </div>
 
           <label for="ingredient-quantity">Quantity</label>
@@ -298,18 +314,20 @@
             name="ingredient-quantity"
             min="0"
             step="0.1" />
-          <label class="upload__ingredients__error error-quantity"></label>
+          <label
+            class="upload__ingredients__error error-quantity hidden"></label>
 
           <label for="ingredient-unit">Unit</label>
           <input type="text" id="ingredient-unit" name="ingredient-unit" />
-          <label class="upload__ingredients__error error-unit"></label>
+          <label class="upload__ingredients__error error-unit hidden"></label>
 
           <label for="ingredient-description">Description</label>
           <input
             type="text"
             id="ingredient-description"
             name="ingredient-description" />
-          <label class="upload__ingredients__error error-description"></label>
+          <label
+            class="upload__ingredients__error error-description hidden"></label>
 
           <button class="btn--small upload__btn--add-ingredient">
             <span>Add </span>
